@@ -11,7 +11,6 @@ max_epsilon = 1.0
 
 # Setup environment
 env = ImgObsWrapper(gym.make("MiniGrid-Empty-8x8-v0"))
-
 env.reset()
 
 agent = agent.QLearningAgent(env=env, discount_factor=discount_factor, learning_rate=learning_rate, epsilon=max_epsilon)
@@ -84,3 +83,7 @@ for episode in range(total_episodes):
     rewards_dict["actions_taken"] = actions_taken
 
     rewards_array.append(dict(rewards_dict))
+
+
+agent_q_table = agent.q_table
+
